@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our 1 Year Anniversary</title>
+
+<style>
+body{
+    margin:0;
+    background:#f4e6c3;
+    font-family: "Courier New", cursive;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* Book container */
+.book{
+    width:95%;
+    max-width:420px;
+    height:90vh;
+    max-height:650px;
+    background:#fffdf5;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    overflow:hidden;
+    position:relative;
+}
+
+/* Cover */
+.cover{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:#a47148;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    cursor:pointer;
+    transition:0.8s ease;
+}
+
+.cover h1{
+    font-size:26px;
+}
+
+.cover.hidden{
+    opacity:0;
+    pointer-events:none;
+}
+
+/* Pages */
+.page{
+    position:absolute;
+    width:100%;
+    height:100%;
+    padding:20px;
+    box-sizing:border-box;
+    overflow-y:auto;
+    opacity:0;
+    transition:0.5s;
+}
+
+.page.active{
+    opacity:1;
+}
+
+/* Sketch Photo */
+.page img{
+    width:100%;
+    border-radius:8px;
+    margin-bottom:15px;
+    filter: grayscale(100%) contrast(200%) brightness(120%);
+    mix-blend-mode:multiply;
+}
+
+/* Titles */
+h2{
+    text-align:center;
+}
+
+/* Navigation */
+.nav{
+    margin-top:20px;
+    text-align:center;
+}
+
+button{
+    padding:8px 15px;
+    border:none;
+    background:#a47148;
+    color:white;
+    border-radius:5px;
+    margin:5px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=romantic-love-ambient-110397.mp3" type="audio/mpeg">
+</audio>
+
+<div class="book">
+
+<!-- COVER -->
+<div class="cover" onclick="openBook()">
+<h1>🐹 Our 1 Year Journey 📖</h1>
+<p>Tap to Open</p>
+</div>
+
+<!-- CHAPTER 1 -->
+<div class="page active" id="page1">
+<img src="chapter1.jpg">
+<h2>Chapter 1 — Our First Story</h2>
+<p>
+It was Sunday, March 16th, 2025, when your friend texted me about you.  
+I wasn’t looking for love, but when I saw your pictures, I knew something was different.  
+
+I was scared you might cheat or lie to me, but I chose to trust you.  
+
+On Saturday, March 22nd, 2025, we met after school at an ice cream shop.  
+When I saw you standing outside for the first time, I fell in love with your beauty.  
+
+On March 25th, we met again.  
+We were laughing, and I kissed you.  
+It was the best kiss ever.
+</p>
+<div class="nav">
+<button onclick="nextPage(2)">Next</button>
+</div>
+</div>
+
+<!-- CHAPTER 2 -->
+<div class="page" id="page2">
+<img src="chapter2.jpg">
+<h2>Chapter 2 — When We Were at Our Lowest</h2>
+<p>
+It was Tuesday, April 1st, 2025, during Khmer New Year.  
+You hurt your foot.  
+
+Later, your dad found out about us and took your phone.  
+I cried every day waiting for your texts.  
+
+On April 4th, you texted me back.  
+I was so happy.  
+
+But then you left for a month.  
+I overthought everything.  
+It was my fault.  
+
+When you came back, we were happier than ever.
+</p>
+<div class="nav">
+<button onclick="nextPage(1)">Back</button>
+<button onclick="nextPage(3)">Next</button>
+</div>
+</div>
+
+<!-- CHAPTER 3 -->
+<div class="page" id="page3">
+<img src="chapter3.jpg">
+<h2>Chapter 3 — Our Distance</h2>
+<p>
+During vacation, I failed my class.  
+I stayed up playing games until 6 a.m. and ignored you.  
+
+You cried because you thought I lost feelings.  
+But I didn’t.  
+
+I was lost and confused.  
+Now I know it was my fault.
+</p>
+<div class="nav">
+<button onclick="nextPage(2)">Back</button>
+<button onclick="nextPage(4)">Next</button>
+</div>
+</div>
+
+<!-- CHAPTER 4 -->
+<div class="page" id="page4">
+<h2>Chapter 4 — Our Love Was Stronger</h2>
+<p>
+On the first day of school, I was happy just to see your face.  
+
+We bought hotpot vegetables, cooked together, went to malls, and watched the sunset.  
+
+You bought me a guitar and made me the happiest man alive.  
+
+Even when your mom tried to stop us,  
+we still love each other more than ever.
+</p>
+<div class="nav">
+<button onclick="nextPage(3)">Back</button>
+<button onclick="nextPage(5)">Next</button>
+</div>
+</div>
+
+<!-- FINAL PAGE -->
+<div class="page" id="page5">
+<h2>Our Journey 🤍</h2>
+<p>
+b ter oy o nis jea our journey dal yg ter jea muy knea 1 year  
+b slanh o nas  
+b jg oy puk yg nv muy knea yuuuu jeang ey tt ort bek knea ort mean rg dch nis  
+b slanh o klgg nass  
+i love youuuu my babeeee
+</p>
+<h3 style="text-align:right;">— K</h3>
+<div class="nav">
+<button onclick="nextPage(4)">Back</button>
+</div>
+</div>
+
+</div>
+
+<script>
+function openBook(){
+document.querySelector(".cover").classList.add("hidden");
+document.getElementById("bgMusic").play();
+}
+
+function nextPage(num){
+let pages=document.querySelectorAll(".page");
+pages.forEach(p=>p.classList.remove("active"));
+document.getElementById("page"+num).classList.add("active");
+}
+</script>
+
+</body>
+</html>
